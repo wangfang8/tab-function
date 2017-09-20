@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{padding:0;margin:0}
+        ul{
+            list-style: none;
+        }
+        .wapper{
+            width: 1000px;
+            height: 475px;
+            margin: 100px auto;
+        }
+        .tab{
+            width: 320px;
+            height: 36px;
+            border: 1px solid #ddd;
+            border-bottom: 0;
+        }
+        .tab li{
+            float: left;
+            width: 80px;
+            height: 34px;
+            text-align: center;
+            line-height: 34px;
+            cursor: pointer;
+            border-top: 4px solid #fff;
+            position: relative;
+        }
+        .tab li.active{
+            border-color: red;
+        }
+        .tab span{
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 1px;
+            height: 14px;
+            overflow: hidden;
+            background: #dddddd;
+        }
+        .product{
+            width: 1002px;
+            height: 476px;
+            border: 1px solid #ddd;
+        }
+        .main{
+            display: none;
+            float: left;
+        }
+        .selected{
+            display: block;
+        }
+    </style>
+    <script src="js/jquery-2.2.2.js"></script>
+    <script>
+        $(function(){
+            $('.wapper ul li').mouseenter(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.product .main').eq($(this).index()).addClass('selected').siblings().removeClass('selected');
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="wapper">
+    <ul class="tab">
+        <li class="active">国际大牌<span></span></li>
+        <li>国妆名牌<span></span></li>
+        <li>清洁用品<span></span></li>
+        <li>男士精品</li>
+    </ul>
+    <div class="product">
+        <div class="main selected">
+            <a href="#"><img src="images/guojidapai.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="#"><img src="images/guozhuangmingpin.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="#"><img src="images/qingjieyongpin.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="#"><img src="images/nanshijingpin.jpg" alt=""/></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
